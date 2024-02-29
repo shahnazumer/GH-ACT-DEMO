@@ -65,8 +65,13 @@ jobs:
         flask run &
         sleep 5
 
-    - name: Run tests
+    - name: Test with pytest
       run: |
+        pip install pytest
+        export PYTHONPATH=srs
+        pytest
+
+    
         export FLASK_ENV=testing
         pytest
 
